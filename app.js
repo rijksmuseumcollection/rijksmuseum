@@ -61,7 +61,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Rijks Museum Api';
 
 
 // Enable authentication using session + passport
@@ -80,6 +80,8 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
-      
+
+const albums = require('./routes/albums')
+app.use('/albums', albums)
 
 module.exports = app;
