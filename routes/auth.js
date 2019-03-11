@@ -27,7 +27,6 @@ router.post("/signup", (req, res, next) => {
   const email = req.body.email
   const password = req.body.password
   const alias = req.body.alias
-  const description = req.body.description
   if (email === "" || password === "") {
     res.render("auth/signup", { message: "Indicate email and password" });
     return;
