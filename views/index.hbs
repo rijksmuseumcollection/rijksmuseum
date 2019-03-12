@@ -1,13 +1,12 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<a href="/artpiece/{{_id}}">ir a artpiece</a>
+<a href="/albums/showAllAlbums">ir a albums de una persona</a>
 
 
-{{#if data}}
-  {{#each data}}
-    <img src="{{image}}">
-    <form method="POST" action="/albums/delete/img/{{_id}}">
-      <button type="submit">DELETE</button>
-    </form>
+{{#each data}}
+  <a href="artpiece/{{objectNumber}}">
+      <img src="{{webImage.url}}">
+
+  </a>
   {{/each}}
-{{/if}}
-

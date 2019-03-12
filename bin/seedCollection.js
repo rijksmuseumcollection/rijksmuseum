@@ -27,31 +27,31 @@ const collection = [{
     }]
 }]
 mongoose
-  .connect('mongodb://localhost/rijksmuseum', {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
+    .connect('mongodb://localhost/rijksmuseum', { useNewUrlParser: true })
+    .then(x => {
+        console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    })
+    .catch(err => {
+        console.error('Error connecting to mongo', err)
+    });
 
 
 
 //5c86af5a4c0292532fd6a9ee
 
 Collection.deleteMany()
-.then(() => {
-  return Collection.create(collection)
-})
-.then(collectionCreated => {
-  console.log(`${collectionCreated.length} collections created with the following id:`);
-  console.log(collectionCreated.map(u => u._id));
-})
-.then(() => {
-  // Close properly the connection to Mongoose
-  mongoose.disconnect()
-})
-.catch(err => {
-  mongoose.disconnect()
-  throw err
-})
+    .then(() => {
+        return Collection.create(collection)
+    })
+    .then(collectionCreated => {
+        console.log(`${collectionCreated.length} collections created with the following id:`);
+        console.log(collectionCreated.map(u => u._id));
+    })
+    .then(() => {
+        // Close properly the connection to Mongoose
+        mongoose.disconnect()
+    })
+    .catch(err => {
+        mongoose.disconnect()
+        throw err
+    })
