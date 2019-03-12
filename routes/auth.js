@@ -9,58 +9,58 @@ const bcryptSalt = 10;
 
 
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+    res.render("auth/login", { "message": req.flash("error") });
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
+    successRedirect: "/",
+    failureRedirect: "/auth/login",
+    failureFlash: true,
+    passReqToCallback: true
 }));
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
+    res.render("auth/signup");
 });
 
 router.post("/signup", (req, res, next) => {
-  const email = req.body.email
-  const password = req.body.password
-  const alias = req.body.alias
-  if (email === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate email and password" });
-    return;
-  }
-
-  User.findOne({ email }, "email", (err, mail) => {
-    if (mail !== null) {
-      res.render("auth/signup", { message: "The email already exists" });
-      return;
+    const email = req.body.email
+    const password = req.body.password
+    const alias = req.body.alias
+    if (email === "" || password === "") {
+        res.render("auth/signup", { message: "Indicate email and password" });
+        return;
     }
 
-    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
+    User.findOne({ email }, "email", (err, mail) => {
+        if (mail !== null) {
+            res.render("auth/signup", { message: "The email already exists" });
+            return;
+        }
 
-    const newUser = new User({
-      email,
-      password: hashPass,
-      alias,
-      description
+        const salt = bcrypt.genSaltSync(bcryptSalt);
+        const hashPass = bcrypt.hashSync(password, salt);
+
+        const newUser = new User({
+            email,
+            password: hashPass,
+            alias,
+
+        });
+
+        newUser.save()
+            .then(() => {
+                res.redirect("/");
+            })
+            .catch(err => {
+                res.render("auth/signup", { message: "Something went wrong" });
+            })
     });
-
-    newUser.save()
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
-  });
 });
 
 router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("/");
+    req.logout();
+    res.redirect("/");
 });
 
 module.exports = router;

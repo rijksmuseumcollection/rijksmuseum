@@ -85,6 +85,6 @@ const albums = require('./routes/albums')
 app.use('/albums', albums)
 
 const search = require('./routes/search')
-app.use('/search', search)
+    // app.use('/search', search)
 
 module.exports = app;
