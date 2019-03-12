@@ -1,0 +1,13 @@
+{{#each response}}
+  <div>
+    {{#if webImage}}
+      <img src="{{webImage.url}}">
+    {{else}}
+      <img src="../images/not-found.jpg">
+    {{/if}}
+    <p>{{title}}</p>
+    <p>{{principalOrFirstMaker}}</p>
+
+  </div>
+
+  {{/each}}
