@@ -1,6 +1,9 @@
 <h2>Signup</h2>
 
 <form action="/auth/signup" method="POST" id="form-container">
+  <label for="alias">Name/Alias</label>
+  <input id="username" type="text" name="alias" placeholder="How do you want to be seen"><br><br>
+  
   <label for="email">Email address</label>
   <input id="email" type="email" name="email" placeholder="Enter your email address">
 
@@ -9,9 +12,6 @@
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
   <br><br>
-
-  <label for="alias">Alias</label>
-  <input id="username" type="text" name="alias" placeholder="How do you want to be seen">
 
   {{#if message }}
     <div class="error-message">{{ message }}</div>

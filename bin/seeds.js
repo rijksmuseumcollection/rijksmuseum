@@ -6,8 +6,10 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const Collection = require("../models/Collection")
 
 const bcryptSalt = 10;
+
 
 mongoose
   .connect('mongodb://localhost/rijksmuseum', {useNewUrlParser: true})
@@ -20,14 +22,18 @@ mongoose
 
 let users = [
   {
-    username: "alice",
-    password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
+    email: "alice@test.org",
+    password: bcrypt.hashSync("test", bcrypt.genSaltSync(bcryptSalt)),
+    alias: "aliceness"
   },
   {
-    username: "bob",
-    password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
+    username: "bob@test.org",
+    password: bcrypt.hashSync("test", bcrypt.genSaltSync(bcryptSalt)),
+    alias: "bobbie"
   }
 ]
+
+//5c86af5a4c0292532fd6a9ee
 
 User.deleteMany()
 .then(() => {
