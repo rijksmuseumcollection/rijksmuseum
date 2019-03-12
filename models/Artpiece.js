@@ -7,7 +7,8 @@ const artPieceSchema = new Schema({
     description: String,
     author: String,
     age: Date,
-    technique: String
+    technique: String,
+    collectionId: [{type: mongoose.Schema.Types.ObjectId, ref: 'Collection'}]
 }, {
     timestamps: {
         createdAt: 'created_at',

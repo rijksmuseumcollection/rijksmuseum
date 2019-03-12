@@ -6,11 +6,7 @@ const collectionSchema = new Schema({
   tags: String,
   albumDescription: String,
   userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  collectionObj: [{
-    image: String,
-    title: String,
-    author: String
-  }],
+  artPieceId: [{type: mongoose.Schema.Types.ObjectId, ref: 'Artpiece'}],
   albumComment: [{
     nameComment: String,
     commentary: String

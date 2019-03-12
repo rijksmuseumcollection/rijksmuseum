@@ -10,16 +10,7 @@ const collection = [{
   tags: "#flowers",
   albumDescription: "Very pretty thank you very well fandango",
   userId: { _id: "5c86af5a4c0292532fd6a9ee" },
-  collectionObj: [{
-    image: "https://randomwebsitewithimage.com",
-    title: "Very Pretty",
-    author: "Pepo"
-  },
-  {image: "https://randomwebsitewithimage.com/ftp/",
-    title: "Very Pretty again",
-    author: "Javi"
-  }
-  ],
+  ArtpieceId: [],
   albumComment: [{
     nameComment: String,
     commentary: String
@@ -29,16 +20,7 @@ const collection = [{
     tags: "#flowerss",
     albumDescription: "Very pretty thank you very well fandangox2",
     userId: { _id: "5c86af5a4c0292532fd6a9ee" },
-    collectionObj: [{
-      image: "https://randomwebsitewithimage.com/random/",
-      title: "Very Pretty Again",
-      author: "Cris"
-    },
-    {image: "https://randomwebsitewithimage.com",
-      title: "Very Pretty",
-      author: "Pepo"
-    }
-    ],
+    ArtpieceId: [],
     albumComment: [{
       nameComment: String,
       commentary: String

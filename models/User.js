@@ -5,6 +5,7 @@ const userSchema = new Schema({
   email: String,
   password: String,
   alias: String,
+  collectionId: [{type: mongoose.Schema.Types.ObjectId, ref: 'Collection'}]
 }, {
   timestamps: {
     createdAt: 'created_at',
