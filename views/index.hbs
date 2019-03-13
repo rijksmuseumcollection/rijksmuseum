@@ -6,7 +6,33 @@
            {{#each data}}
           <article class="home-artpiece">
           <a href="artpiece/{{objectNumber}}" class="home-artpiece-img">
-              <img src="{{webImage.url}}">
+              {{#if webImage}}
+                <img src="{{webImage.url}}">
+              {{else}}
+                <img src="../images/not-found.jpg">
+              {{/if}}
+              
+
+          </a>
+          <p class="home-artpiece-author">{{principalOrFirstMaker}}</p>
+          <p class="home-artpiece-title">{{title}}</p>
+          </article>
+          {{/each}}
+
+
+
+
+
+           {{#each data}}
+          <article class="home-user-album">
+          <a href="artpiece/{{objectNumber}}" class="home-artpiece-img">
+              {{#if webImage}}
+                <img src="{{webImage.url}}">
+              {{else}}
+                <img src="../images/not-found.jpg">
+              {{/if}}
+              
+
           </a>
           <p class="home-artpiece-author">{{principalOrFirstMaker}}</p>
           <p class="home-artpiece-title">{{title}}</p>
