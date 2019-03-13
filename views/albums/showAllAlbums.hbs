@@ -1,8 +1,13 @@
-<h1>{{this.albumName}}</h1>
-<h2>HOLA</h2>
-<p>{{tags}}</p>
-
+<section class="album-container">
 {{#each album}}
-  <p>{{albumName}}</p>
-  <p>{{albumDescription}}</p>
+  
+    <article class="single-album">
+      <div class="cuadro"></div>
+
+      <p class="album-name">{{albumName}}</p>
+      <p class="album-description">{{albumDescription}}</p>
+
+    </article>
+
 {{/each}}
+</section>

@@ -6,13 +6,13 @@ const Artpiece = require('../models/Artpiece')
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-    axios.get("https://www.rijksmuseum.nl/api/en/collection?key=VYUGobm8&format=json&s=relevance")
+    axios.get("https://www.rijksmuseum.nl/api/en/collection?key=VYUGobm8&format=json&q=vermeer&&s=relevance")
         .then(response => {
             console.log(response.data.artObjects);
             res.render('index', { 'data': response.data.artObjects })
         })
         .catch(err => console.log(err))
-    })
+})
 
 //     Collection.find()
 //         .then(test => res.render('index', {'data': test[0].collectionObj}))
@@ -23,7 +23,7 @@ router.get('/', (req, res, next) => {
 // })
 
 // router.get('/:id', (req, res, next) => {
-    
+
 //     Collection.findById(req.paramas.id)
 //         .then(test => res.render('index', {test}))
 //         .catch(err => console.log(err))
