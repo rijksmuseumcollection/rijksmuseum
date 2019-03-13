@@ -1,13 +1,47 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<a href="/albums/showAllAlbums">ir a albums de una persona</a>
 
 
-{{#each data}}
-  <a href="artpiece/{{objectNumber}}">
-      <img src="{{webImage.url}}">
+<section class="home-container">
 
-  </a>
-  {{/each}}
+           {{#each data}}
+          <article class="home-artpiece">
+          <a href="artpiece/{{objectNumber}}" class="home-artpiece-img">
+              {{#if webImage}}
+                <img src="{{webImage.url}}">
+              {{else}}
+                <img src="../images/not-found.jpg">
+              {{/if}}
+              
+
+          </a>
+          <p class="home-artpiece-author">{{principalOrFirstMaker}}</p>
+          <p class="home-artpiece-title">{{title}}</p>
+          </article>
+          {{/each}}
+
+
+
+
+
+           {{#each data}}
+          <article class="home-user-album">
+          <a href="artpiece/{{objectNumber}}" class="home-artpiece-img">
+              {{#if webImage}}
+                <img src="{{webImage.url}}">
+              {{else}}
+                <img src="../images/not-found.jpg">
+              {{/if}}
+              
+
+          </a>
+          <p class="home-artpiece-author">{{principalOrFirstMaker}}</p>
+          <p class="home-artpiece-title">{{title}}</p>
+          </article>
+          {{/each}}
+
+
+
+
+  </section>
 
 

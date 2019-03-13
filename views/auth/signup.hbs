@@ -1,28 +1,30 @@
-<h2>Signup</h2>
+<section class="signup-box">
+<h1 class="signup-h1">JOIN RIJKSMUSEUM</h1>
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="alias">Name/Alias</label>
-  <input id="username" type="text" name="alias" placeholder="How do you want to be seen"><br><br>
-  
-  <label for="email">Email address</label>
-  <input id="email" type="email" name="email" placeholder="Enter your email address">
+<ul class="signup-form">
+      <li><form action="/auth/signup" method="POST">
+        <label for="alias">Name/Alias</label>
+        <input id="username" type="text" name="alias" placeholder="How do you want to be seen" class="signup-alias-box"></li>
+        
+       <li><label for="email">Email address</label>
+        <input id="email" type="email" name="email" placeholder="Enter your email" class="signup-email-box"></li>
 
-  <br><br>
+        <li><label for="password">Password</label>
+        <input id="password" type="password" name="password" placeholder="*********" class="signup-pass-box"></li>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br><br>
+        {{#if message }}
+          <div class="error-message">{{ message }}</div>
+        {{/if}}
 
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+        <li><button class="signup-button">CREATE ACCOUNT</button></li>
 
-  <br><br>
+        <li><p class="account-message">
+            Do you already have an account? <br>
+            <a href="/auth/login">Login</a>
+            </p>
+        </li>
+      </form>
 
-  <button>Create account</button>
+</ul>
 
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
-</form>
+</section>

@@ -4,13 +4,33 @@ const axios = require('axios')
 const Collection = require("../models/Collection")
 const Artpiece = require('../models/Artpiece')
 
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
+
 /* GET home page */
 router.get('/', (req, res, next) => {
-    axios.get("https://www.rijksmuseum.nl/api/en/collection?key=VYUGobm8&format=json&s=relevance")
-        .then(response => res.render('index', { 'data': response.data.artObjects })
-        )
-        .catch(err => console.log(err))
+    const values = ['van gogh', 'Sandra van den Bos', 'goya', 'steen', 'Jean Baptiste', 'Jan van', 'rubens'];
+
+    const toSend = values[Math.floor(Math.random() * values.length)]
+
+    axios.get(`https://www.rijksmuseum.nl/api/en/collection?key=VYUGobm8&format=json&q=${toSend}&ps=6&p=3`)
+        .then(response => {
+            console.log(response.data.artObjects)
+            res.render('index', { 'data': shuffle(response.data.artObjects) })
+        })
+
+    .catch(err => console.log(err))
 })
+
+
 
 //     Collection.find()
 //         .then(test => res.render('index', {'data': test[0].collectionObj}))
@@ -41,8 +61,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/artpiece/:id', (req, res, next) => {
     axios.get(`https://www.rijksmuseum.nl/api/en/collection/${req.params.id}?key=VYUGobm8&format=json`)
-        .then(response => res.render('artpiece', { 'data': response.data.artObject })
-        )
+        .then(response => res.render('artpiece', { 'data': response.data.artObject }))
         .catch(err => console.log(err))
 
 })
