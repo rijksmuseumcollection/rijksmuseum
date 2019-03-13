@@ -2,25 +2,51 @@ const express = require('express')
 const router  = express.Router()
 
 const Collection = require('../models/Collection')
+const User = require('../models/User')
+const Artpiece = require('../models/Artpiece')
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.render('auth/login', { message: "Hey! join us to create your album :D"})
+
+  }
+}
 
 router.post("/", (req,res) => {
   res.render("index")
 })
 
-router.post("/delete/:id", (req, res) => {
 
-  Collection.findByIdAndDelete(req.params.id)
-    .then(() => res.redirect("/"))
+router.post("/delete/:id", (req, res) => {
+  Collection.findOneAndDelete({ _id: req.params.id})
+    .then(data => {res.redirect("/")})
     .catch(err => console.log(err))
 
 })
 
-router.post("/delete/:id", (req, res) => {
-  console.log(Collection)
-  Collection.findOneAndDelete({ "collectionObj._id" : req.params.id})
-    .then(data => {console.log(data); res.redirect("/")})
-    .catch(err => console.log(err))
+router.get('/create', ensureAuthenticated, (req,res,next) => {
+  
+  res.render("albums/create")
 
+})
+
+router.post('/create', ensureAuthenticated, (req,res,next) => {
+
+  const {albumName, tags, description} = req.body
+
+  
+  const collection = new Collection ({
+    albumName,
+    tags,
+    albumDescription: description,
+    userId : req.session.passport.user
+  })
+
+  collection.save()
+    .then(data => res.redirect('/'))
+    .catch(err => console.log(err))
 })
 
 router.get('/showAllAlbums/:id', (req, res, next) => {
@@ -33,5 +59,15 @@ router.get('/showAllAlbums/:id', (req, res, next) => {
       .catch(err => console.log(err))
 
 })
+
+router.get('/showAlbum/:id'), (req,res,next) => {
+  
+  Artpiece.find({"collectionId": req.params.id}) 
+      .then(artpiece => {
+        res.render("albums/showAlbum", {artpiece})
+      })      
+      .catch(err => console.log(err))
+
+}
 
 module.exports = router
