@@ -1,13 +1,17 @@
-{{#each response}}
-  <div>
-    {{#if webImage}}
-      <img src="{{webImage.url}}">
-    {{else}}
-      <img src="../images/not-found.jpg">
-    {{/if}}
-    <p>{{title}}</p>
-    <p>{{principalOrFirstMaker}}</p>
+<section class="search-container">
+  {{#each response}}
+      <article class="search-single-box">
 
-  </div>
+        {{#if webImage}}
+          <img src="{{webImage.url}}" class="search-single-img">
+        {{else}}
+          <img src="../images/not-found.jpg">
+        {{/if}}
 
-  {{/each}}
+        <p class="search-title">{{title}}</p>
+        <p class="search-author">{{principalOrFirstMaker}}</p>
+
+      </article>
+
+    {{/each}}
+</section>

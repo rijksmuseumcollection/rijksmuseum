@@ -23,8 +23,14 @@ router.get('/', (req, res, next) => {
 
     axios.get(`https://www.rijksmuseum.nl/api/en/collection?key=VYUGobm8&format=json&q=${toSend}&ps=6&p=3`)
         .then(response => {
-            console.log(response.data.artObjects)
-            res.render('index', { 'data': shuffle(response.data.artObjects) })
+            Collection.find()
+                .then(album => {
+                    console.log(album)
+                        // console.log(response.data.artObjects)
+                    res.render('index', { 'data': shuffle(response.data.artObjects), album })
+                })
+                .catch(err => console.log(err))
+
         })
 
     .catch(err => console.log(err))

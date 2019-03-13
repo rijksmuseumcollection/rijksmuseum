@@ -1,4 +1,4 @@
-<h1>{{title}}</h1>
+<h1>CHECK OUR MOST RELEVANT ARTIST'S WORKS</h1>
 
 
 <section class="home-container">
@@ -19,29 +19,56 @@
           </article>
           {{/each}}
 
+</section>
 
 
 
+<section class="background">
+  <h1 class="header2">SOME OF OUR MEMBER'S PERSONALIZED ALBUMS</h1> 
+    <article class="home-album-container">
+      
 
-           {{#each data}}
-          <article class="home-user-album">
-          <a href="artpiece/{{objectNumber}}" class="home-artpiece-img">
-              {{#if webImage}}
-                <img src="{{webImage.url}}">
-              {{else}}
-                <img src="../images/not-found.jpg">
-              {{/if}}
-              
+           {{#each album}}
+              <article class="home-user-album">
+              <a href="artpiece/{{objectNumber}}" class="home-user-album-img">
 
-          </a>
-          <p class="home-artpiece-author">{{principalOrFirstMaker}}</p>
-          <p class="home-artpiece-title">{{title}}</p>
-          </article>
+                  {{#if webImage}}
+                    <img src="{{webImage.url}}">
+                  {{else}}
+                    <img src="../images/not-found.jpg">
+                  {{/if}}
+                  
+
+              </a>
+              <p class="home-album-author">{{albumName}}</p>
+              <p class="home-album-title">{{albumDescription}}</p>
+              <a href="#" class="home-album-alias">cris</a>
+              </article>
           {{/each}}
 
+    </article>
+</section>
 
 
+<section class="home-form-container">
+    <p>Don't have an account yet?</p>
+    
+    <a href="/views/auth/signup.hbs" class="signup-button">SIGN UP</a>
+    {{!-- <button class="signup-button"></button> --}}
 
-  </section>
+    <article class="social">
+
+      <p class="share">Share your albums!</p>
+<div class="icons">
+      <img src="/images/instagram-3.png" alt="instagram">
+      <img src="/images/twitter.png" alt="twitter">
+      <img src="/images/facebook.png" alt="facebook">
+</div>
+    </article>
+
+         
+
+  
+</section>
 
 

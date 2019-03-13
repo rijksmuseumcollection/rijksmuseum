@@ -12,10 +12,17 @@ img {
   max-width: 700px; }
 
 main {
-  padding-top: 5em; }
+  padding-top: 3.8em; }
 
 input:focus {
   outline: 0 none; }
+
+h1 {
+  font-family: 'Amiri', serif;
+  font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  text-align: center; }
 
 .home-container {
   max-width: 1400px;
@@ -24,8 +31,12 @@ input:focus {
   flex-wrap: wrap;
   justify-content: space-around; }
 
-.home-artpiece {
+.home-artpiece,
+.home-user-album {
   width: 30%; }
+
+.home-artpiece {
+  margin-bottom: 30px; }
 
 .home-artpiece img {
   width: 100%;
@@ -33,7 +44,75 @@ input:focus {
   object-fit: cover; }
 
 .home-artpiece-title {
-  text-align: center; }
+  text-align: center;
+  margin-top: -14px; }
+
+.header2 {
+  margin-top: 30px;
+  padding-top: 40px; }
+
+.background {
+  width: 100%;
+  background-color: #E3DDCA; }
+
+.home-album-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 50px; }
+
+.home-album-container a {
+  font-size: 20px;
+  font-weight: 900; }
+
+.home-user-album-img img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover; }
+
+.home-album-alias {
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+  padding-bottom: 2px;
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+  width: fit-content; }
+
+.home-album-author {
+  display: block;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Amiri', serif; }
+
+.home-album-title {
+  display: block;
+  text-align: center;
+  margin-top: -14px;
+  margin-bottom: 10px; }
+
+.home-form-container {
+  height: 600px;
+  text-align: center;
+  padding-top: 50px;
+  font-size: 32px; }
+
+.share {
+  font-size: 20px; }
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.social img {
+  display: flex;
+  height: 2rem;
+  margin: .5rem;
+  margin-top: 2rem; }
 
 nav {
   display: flex;
@@ -80,6 +159,31 @@ nav img {
   margin-right: 5px;
   padding: 5px; }
 
+.search-container {
+  max-width: 1400px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
+.search-single-box {
+  width: 40%;
+  margin-bottom: 40px; }
+
+.search-single-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  margin-bottom: 10px; }
+
+.search-title {
+  margin-bottom: 5px; }
+
+.search-author {
+  font-size: 20px;
+  font-weight: 900;
+  font-family: 'Amiri', serif; }
+
 .artpiece-container {
   display: flex;
   height: 100vh; }
@@ -88,16 +192,42 @@ nav img {
     .artpiece-container .artpiece-img img {
       object-fit: cover;
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      max-width: 100%; }
   .artpiece-container .artpiece-info {
     width: 30vw;
-    overflow-y: scroll; }
+    overflow-y: scroll;
+    background-color: #E3DDCA;
+    padding-right: 40px; }
+  .artpiece-container .artpiece-prop {
+    list-style-type: none; }
+  .artpiece-container .artpiece-title {
+    font-size: 32px;
+    text-align: left;
+    padding-left: 40px; }
 
 .home-artpiece-author {
   font-size: 32px;
   font-family: 'Amiri', serif;
   display: block;
   text-align: center; }
+
+.autor {
+  font-size: 20px; }
+
+.technique {
+  font-style: italic; }
+
+.description {
+  line-height: 22px; }
+
+.goback {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 5px; }
 
 .album-container {
   display: flex;
@@ -163,7 +293,9 @@ nav img {
   font-size: 15px;
   display: block;
   margin: 50px auto;
-  font-family: 'Lato', sans-serif; }
+  font-family: 'Lato', sans-serif;
+  max-width: 100px;
+  text-decoration: none; }
 
 .login-button:hover,
 .signup-button:hover {
