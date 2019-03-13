@@ -1,25 +1,30 @@
+<section class="login-box">
+<h1 class="login-h1">ACCESS TO YOUR ALBUMS</h1>
 
-<h2>Login</h2>
+<ul class="login-form">
+  
+  <li><form action="/auth/login" method="POST">
+  <label for="email">Email</label><br>
+  <input id="username" type="text" name="email" placeholder="Enter your email" class="login-email-box"></li>
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="email">Email</label>
-  <input id="username" type="text" name="email" placeholder="Enter your email">
+  <li><label for="password">Password</label><br>
+  <input id="password" type="password" name="password" placeholder="*********" class="login-pass-box"></li>
 
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
+  <li>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
+  </li>
 
-  <br><br>
+  <li><button class="login-button">LOGIN</button></li>
 
-  <button>Login</button>
-
-  <p class="account-message">
-    Don't have an account yet?
+  <li>
+    <p class="account-message">Don't have an account yet?</br>
     <a href="/auth/signup">Signup</a>
-  </p>
+    </p>
+  </li>
 </form>
+
+</ul>
+
+</section>

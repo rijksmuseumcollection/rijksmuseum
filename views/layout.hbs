@@ -6,20 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+<link href="https://fonts.googleapis.com/css?family=Amiri|Lato:300" rel="stylesheet">
 </head>
 <body>
 
   <nav>
-    <a href="/">Home</a>
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
-    <a href="/auth/logout">Logout</a>
-    <form method="POST" action="/search">
-      <label for="search"><input type="text" name="search" placeholder="Search"></label>
-      <button type="submit">Search</button>
-    </form>
+    <a href="/"><img src="/images/logo.png" alt="logo"></a>
+    
+
+    
+      <ul class="nav-list">
+          <li><a href="/auth/signup">SIGNUP</a></li>
+          <li><a href="/auth/login">LOGIN</a></li>
+          <li><a href="/auth/logout">LOGOUT</a></li>
+          <li><form method="POST" action="/search">
+              <label for="search"><input type="text" name="search" placeholder="Search" class="search-box" autocomplete="off"></label>
+              <button type="submit" class="search-button">GO</button>
+              </form>
+          </li>
+    </ul>
   </nav>
+
+
+
+
+  <main>
    {{{body}}}
+
+  </main>
 
   <script src="/javascripts/script.js"></script>
 </body>

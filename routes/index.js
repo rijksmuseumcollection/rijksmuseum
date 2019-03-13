@@ -6,10 +6,13 @@ const Artpiece = require('../models/Artpiece')
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-    axios.get("https://www.rijksmuseum.nl/api/en/collection?key=VYUGobm8&format=json&s=relevance")
-        .then(response => res.render('index', { 'data': response.data.artObjects })
-        )
-        .catch(err => console.log(err))
+    axios.get("https://www.rijksmuseum.nl/api/en/collection?key=VYUGobm8&format=json&q=vermeer")
+        .then(response => {
+            console.log(response.data.artObjects)
+            res.render('index', { 'data': response.data.artObjects })
+        })
+
+    .catch(err => console.log(err))
 })
 
 //     Collection.find()
@@ -41,8 +44,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/artpiece/:id', (req, res, next) => {
     axios.get(`https://www.rijksmuseum.nl/api/en/collection/${req.params.id}?key=VYUGobm8&format=json`)
-        .then(response => res.render('artpiece', { 'data': response.data.artObject })
-        )
+        .then(response => res.render('artpiece', { 'data': response.data.artObject }))
         .catch(err => console.log(err))
 
 })
