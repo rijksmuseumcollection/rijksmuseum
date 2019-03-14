@@ -22,13 +22,20 @@ router.get('/', (req, res, next) => {
     const toSend = values[Math.floor(Math.random() * values.length)]
 
     axios.get(`https://www.rijksmuseum.nl/api/en/collection?key=VYUGobm8&format=json&q=${toSend}&ps=6&p=3`)
-        .then(response => {
-            console.log(response.data.artObjects)
-            res.render('index', { 'data': shuffle(response.data.artObjects) })
-        })
+    .then(response => {
+        Collection.find()
+            .then(album => {
+                console.log(album)
+                // console.log(response.data.artObjects)
+                res.render('index', { 'data': shuffle(response.data.artObjects), album })
+            })
+            .catch(err => console.log(err))
+
+    })
 
     .catch(err => console.log(err))
 })
+
 
 
 
@@ -61,7 +68,15 @@ router.get('/', (req, res, next) => {
 
 router.get('/artpiece/:id', (req, res, next) => {
     axios.get(`https://www.rijksmuseum.nl/api/en/collection/${req.params.id}?key=VYUGobm8&format=json`)
-        .then(response => res.render('artpiece', { 'data': response.data.artObject }))
+        .then(response => {
+            
+            Collection.find({userId: req.session.passport.user})
+                .then(collection => {
+                    res.render('artpiece', { 'data': response.data.artObject, collection })
+                })
+                .catch(err => console.log(err))
+        
+        })
         .catch(err => console.log(err))
 
 })

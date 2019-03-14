@@ -1,9 +1,12 @@
 const express = require('express')
 const router  = express.Router()
+const axios   = require('axios')
 
 const Collection = require('../models/Collection')
 const User = require('../models/User')
 const Artpiece = require('../models/Artpiece')
+const mongoose = require("mongoose")
+
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -60,14 +63,52 @@ router.get('/showAllAlbums/:id', (req, res, next) => {
 
 })
 
-router.get('/showAlbum/:id'), (req,res,next) => {
+router.get('/showAlbum/:id', (req,res,next) => {
   
   Artpiece.find({"collectionId": req.params.id}) 
       .then(artpiece => {
+        console.log(artpiece)
         res.render("albums/showAlbum", {artpiece})
       })      
       .catch(err => console.log(err))
 
-}
+})
+
+
+router.post('/showAlbum/add/:id', (req, res, next) => {
+
+  const collect = req.body.collect
+
+axios.get(`https://www.rijksmuseum.nl/api/en/collection/${req.params.id}?key=VYUGobm8&format=json`)
+      
+    .then(response => {
+        
+        Collection.find({ "albumName" : collect})
+        
+        .then( collection => {
+            console.log(collection)
+            console.log("Hola " + collection._id)
+            const image = new Artpiece({
+              
+              image: response.data.artObject.webImage.url,
+              title: response.data.artObject.title,
+              description: response.data.artObject.plaqueDescriptionEnglish,
+              author: response.data.artObject.principalMakers[0].name,
+              age: response.data.artObject.dating.presentingDate,
+              technique: response.data.artObject.physicalMedium,
+              collectionId: mongoose.Types.ObjectId(collection._id)
+              
+            })
+    
+              image.save()
+                .then(img => console.log(img))
+                .catch(err => console.log(err))
+            })
+        .catch(err => console.log(err))
+  })
+
+})
+
+
 
 module.exports = router

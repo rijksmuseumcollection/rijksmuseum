@@ -1,19 +1,28 @@
 <section class="artpiece-container">
   <article class="artpiece-img">
-<img src="{{data.webImage.url}}" alt="img">
+<img id="image" src="{{data.webImage.url}}" alt="img">
 
   </article>
 
     <article class="artpiece-info">
-      <h1>{{data.title}}</h1>
+      <h1 id="title">{{data.title}}</h1>
 
       <ul class="artpiece-prop">
-          <li>{{data.principalMakers.0.name}}Author</li>
-          <li>{{data.dating.presentingDate}}</li>
-          <li>{{data.plaqueDescriptionEnglish}}Description</li>
-          <li>{{data.physicalMedium}}Technique</li>
+          <li id="author">{{data.principalMakers.0.name}}Author</li>
+          <li id="age">{{data.dating.presentingDate}}</li>
+          <li id="description">{{data.plaqueDescriptionEnglish}}Description</li>
+          <li id="technique">{{data.physicalMedium}}Technique</li>
       </ul>
 
+      <form method="post" action="/albums/showAlbum/add/{{data.objectNumber}}">
+        <label for="collect">Select your collection</label>
+        <select name="collect">
+          {{#each collection}}
+          <option>{{albumName}}</option>
+          {{/each}}
+        </select>
+        <button type="submit">Add</button>
+      </form>
     </article>
 
 </section>
