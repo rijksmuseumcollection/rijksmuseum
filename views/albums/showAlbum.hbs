@@ -10,7 +10,7 @@
       {{/if}}
       <p class="album-single-title">{{title}}</p>
       <p class="album-single-author">{{author}}</p>
-      {{#if isUserLoggedIn  }}
+      {{#if ../isUserLoggedIn}}
       <form method="POST" action="/delete/img/{{_id}}">
             <button type="submit" class="single-delete-button">DELETE</button>
           </form>

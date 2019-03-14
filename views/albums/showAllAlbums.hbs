@@ -14,7 +14,7 @@
           <p class="album-name">{{albumName}}</p>
           <p class="album-description">{{albumDescription}}</p>
 
-          {{#if isUserLoggedIn  }}
+          {{#if ../isUserLoggedIn}}
           <form method="POST" action="/delete/{{_id}}">
             <button type="submit" class="delete-button">DELETE</button>
           </form>
@@ -24,7 +24,7 @@
 
     {{/each}}
 
-        {{#if isUserLoggedIn  }}
+        {{#if isUserLoggedIn}}
         <article class="single-album placeholder">
           <a href="/albums/create">
               <p>+</p>

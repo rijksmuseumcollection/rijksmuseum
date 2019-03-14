@@ -48,7 +48,7 @@ router.get('/showAllAlbums/:id', (req, res, next) => {
   Collection.find({ "userId": req.params.id } )
 
   .then(album => {
-          console.log(album)
+         
           res.render("albums/showAllAlbums", { album })
       })
       .catch(err => console.log(err))
