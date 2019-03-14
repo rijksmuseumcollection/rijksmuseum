@@ -18,8 +18,9 @@ function shuffle(a) {
 /* GET home page */
 router.get('/', (req, res, next) => {
     const values = ['van gog', 'steen', 'Jean Baptiste', 'rubens',
-        'Hendrick Avercamp', 'Karel Appel', 'Pieter Aersen', 'Gerrit Adriaensz Berckheyde',
-        'Jan Davidsz de Heem', 'Frans Hals'
+        'Hendrick Avercamp', 'Pieter Aersen', 'Gerrit Adriaensz Berckheyde',
+        'Jan Davidsz de Heem', 'Frans Hals', 'Isaac Israels', 'Jozef Israëls',
+        'Melchior Hondecoeter', 'Adriaen Coorte', 'Geertgen tot Sint Jans'
     ];
 
     const toSend = values[Math.floor(Math.random() * values.length)]
