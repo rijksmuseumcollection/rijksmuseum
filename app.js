@@ -77,7 +77,7 @@ app.use(flash());
 require('./passport')(app);
 
 app.use((req, res, next) => {
-    //console.log(req.user)
+    
     if (req.user) {
         res.locals.currentUserInfo = req.user;
         res.locals.isUserLoggedIn = true;
@@ -87,6 +87,10 @@ app.use((req, res, next) => {
 
     next();
 });
+
+app.use((req,res, next) => {
+    console.log(req.user)
+})
 
 const index = require('./routes/index')
 app.use('/', index);
