@@ -144,6 +144,12 @@
         margin-top: 2rem;
     }
     
+    .copyright {
+        font-size: 14px;
+        margin-top: 300px;
+        margin-bottom: 40px;
+    }
+    
     //---------------------------------NAV------------------------------------//
     nav {
         display: flex;
@@ -181,7 +187,7 @@
     }
     
     .nav-list a:hover {
-        color: #E3DDCA;
+        color: grey;
     }
     
     .hello {
@@ -208,7 +214,8 @@
     }
     
     //---------------------------------SEARCH------------------------------------//
-    .search-container {
+    .search-container,
+    .album-view-container {
         max-width: 1400px;
         margin: 40px auto;
         display: flex;
@@ -228,11 +235,13 @@
         margin-bottom: 10px;
     }
     
-    .search-title {
+    .search-title,
+    .album-single-title {
         margin-bottom: 5px;
     }
     
-    .search-author {
+    .search-author,
+    .album-single-author {
         font-size: 20px;
         font-weight: 900;
         font-family: 'Amiri', serif;
@@ -240,6 +249,35 @@
     
     .not-found {
         max-width: 560px;
+    }
+    
+    //---------------------------------SINGLE ALBUM VIEW------------------------------------//
+    .album-single-box {
+        width: 30%;
+    }
+    
+    .album-single-img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+    
+    .single-delete-button {
+        padding: 10px 20px;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        font-size: 15px;
+        display: block;
+        margin-top: 30px;
+        font-family: 'Lato', sans-serif;
+        text-decoration: none;
+    }
+    
+    .single-delete-button:hover {
+        background-color: #E3DDCA;
+        color: black
     }
     
     //---------------------------------ART PIECE DETAILS VIEW------------------------------------//
@@ -378,10 +416,6 @@
     }
     /* Transition */
     
-    select:hover::after {
-        color: #f39c12;
-    }
-    
     select::after {
         -webkit-transition: .25s all ease;
         -o-transition: .25s all ease;
@@ -415,12 +449,12 @@
         }
         &.placeholder {
             a {
-                //background: gray;
+                height: 16rem;
                 text-decoration: none;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                border: 1.5px dashed black;
+                border: 1px dashed black;
                 p {
                     font-family: 'Lato', sans-serif;
                     font-size: 200px;
@@ -434,17 +468,37 @@
         height: 250px;
         background-color: white;
         margin-bottom: 15px;
+        border: 1px solid black;
+        padding: 10px;
     }
     
     .album-name {
         font-family: 'Amiri', serif;
         font-size: 32px;
         text-align: center;
+        margin-top: 10px;
     }
     
     .album-description {
         font-size: 16px;
         text-align: center;
+    }
+    
+    .delete-button {
+        padding: 10px 20px;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        font-size: 15px;
+        display: block;
+        margin: 30px auto;
+        font-family: 'Lato', sans-serif;
+        text-decoration: none;
+    }
+    
+    .delete-button:hover {
+        background-color: #E3DDCA;
+        color: black
     }
     
     //---------------------------------LOGIN / SIGN UP------------------------------------//
@@ -484,8 +538,9 @@
     }
     
     .login-button,
-    .signup-button {
-        padding: 15px 30px;
+    .signup-button,
+    .signup-button-home {
+        padding: 15px 40px;
         border: 1px solid black;
         background-color: white;
         color: black;
@@ -493,27 +548,33 @@
         display: block;
         margin: 50px auto;
         font-family: 'Lato', sans-serif;
-        max-width: 100px;
         text-decoration: none;
     }
     
+    .signup-button {
+        max-width: 150px;
+    }
+    
+    .signup-button-home {
+        padding: 10px 10px;
+        margin-top: 20px;
+        font-size: 12px;
+    }
+    
     .login-button:hover,
-    .signup-button:hover {
-        background-color: black;
-        color: white
+    .signup-button:hover,
+    .signup-button-home:hover {
+        background-color: #E3DDCA;
+        color: black;
     }
     
     .account-message {
         display: block;
-        margin: 0 auto;
+        text-align: center;
     }
     
     .account-message a {
         text-decoration: none;
-    }
-    
-    .account-message a:hover {
-        color: orange;
     }
     
     //---------------------------------CREATE------------------------------------//
@@ -555,6 +616,6 @@
     }
     
     .create-button:hover {
-        background-color: black;
-        color: white
+        background-color: #E3DDCA;
+        color: black
     }

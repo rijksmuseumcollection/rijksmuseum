@@ -24,7 +24,7 @@ router.post("/", (req,res) => {
 
 router.post("/delete/:id", (req, res) => {
   
-  Collection.findByIdandDelete({ _id: req.params.id})
+  Collection.findByIdAndDelete({ _id: req.params.id})
     .then(data => {res.redirect("")})
     .catch(err => console.log(err))
 
