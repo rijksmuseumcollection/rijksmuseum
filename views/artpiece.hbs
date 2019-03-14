@@ -5,15 +5,16 @@
   </article>
 
     <article class="artpiece-info">
-      <h1 id="title">{{data.title}}</h1>
+      <h1 class="artpiece-title">{{data.title}}</h1>
 
       <ul class="artpiece-prop">
-          <li id="author">{{data.principalMakers.0.name}}Author</li>
-          <li id="age">{{data.dating.presentingDate}}</li>
-          <li id="description">{{data.plaqueDescriptionEnglish}}Description</li>
-          <li id="technique">{{data.physicalMedium}}Technique</li>
+          <li class="autor">{{data.principalMakers.0.name}}</li> <br>
+          <li>{{data.dating.presentingDate}}</li> <br>
+          <li class="description">{{data.plaqueDescriptionEnglish}}</li> <br>
+          <li class="technique">{{data.physicalMedium}}</li> <br>
       </ul>
 
+      
       <form method="post" action="/albums/showAlbum/add/{{data.objectNumber}}">
         <label for="collect">Select your collection</label>
         <select name="collect">
@@ -23,6 +24,9 @@
         </select>
         <button type="submit">Add</button>
       </form>
+      
+      
+      <a href="/" class="goback">BACK</a>
     </article>
 
 </section>
