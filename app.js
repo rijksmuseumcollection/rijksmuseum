@@ -15,7 +15,7 @@ const flash = require("connect-flash");
 
 
 mongoose
-    .connect('mongodb://localhost/rijksmuseum', { useNewUrlParser: true })
+    .connect(process.env.MONGOURL, { useNewUrlParser: true })
     .then(x => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
     })
@@ -77,7 +77,7 @@ app.use(flash());
 require('./passport')(app);
 
 app.use((req, res, next) => {
-    
+
     if (req.user) {
         res.locals.currentUserInfo = req.user;
         res.locals.isUserLoggedIn = true;
@@ -87,10 +87,6 @@ app.use((req, res, next) => {
 
     next();
 });
-
-app.use((req,res, next) => {
-    console.log(req.user)
-})
 
 const index = require('./routes/index')
 app.use('/', index);
