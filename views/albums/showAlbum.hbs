@@ -10,14 +10,18 @@
       {{/if}}
       <p class="album-single-title">{{title}}</p>
       <p class="album-single-author">{{author}}</p>
-
-      <form method="POST" action="/delete/{{_id}}">
+      {{#if isUserLoggedIn  }}
+      <form method="POST" action="/delete/img/{{_id}}">
             <button type="submit" class="single-delete-button">DELETE</button>
           </form>
+      {{/if}}
     </article>
   {{/each}}
 {{else}}
   <p>There's no art in this collection :(</p>
 {{/if}}
 
+{{#with artpiece}}
+<div><span><a href="../showAllAlbums/{{[0].collectionId.userId}}">Go Back</a></span></div>
+{{/with}}
 </section>

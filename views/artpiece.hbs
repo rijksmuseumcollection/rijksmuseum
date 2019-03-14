@@ -1,6 +1,10 @@
 <section class="artpiece-container">
   <article class="artpiece-img">
-<img id="image" src="{{data.webImage.url}}" alt="img">
+    {{#if data.webImage.url}}
+      <img src="{{data.webImage.url}}" alt="img">
+    {{else}}
+      <img src="../images/not-found.jpg">
+    {{/if}} 
 
   </article>
 
@@ -14,7 +18,7 @@
           <li class="technique">{{data.physicalMedium}}</li> <br>
       </ul>
 
-
+   {{#if isUserLoggedIn  }}
    <div class="addtoalbum-form">
 
       <form method="post" action="/albums/showAlbum/add/{{data.objectNumber}}">
@@ -37,6 +41,7 @@
       </form>
 
     </div>
+    {{/if}}
       
       <a href="/" class="goback">BACK</a>
     </article>  

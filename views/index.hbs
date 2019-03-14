@@ -46,6 +46,7 @@
               </article>
           {{/each}}
 
+          {{#if isUserLoggedIn  }}
            <article class="single-album placeholder">
               <a href="/albums/create">
                   <p>+</p>
@@ -53,7 +54,7 @@
                 <p class="album-name">CREATE NEW ALBUM</p>          
 
           </article>
-
+          {{/if}}
     </article>
 </section>
 

@@ -21,15 +21,6 @@ router.post("/", (req,res) => {
   res.render("index")
 })
 
-
-router.post("/delete/:id", (req, res) => {
-  
-  Collection.findByIdAndDelete({ _id: req.params.id})
-    .then(data => {res.redirect("")})
-    .catch(err => console.log(err))
-
-})
-
 router.get('/create', ensureAuthenticated, (req,res,next) => {
   
   res.render("albums/create")
@@ -67,12 +58,9 @@ router.get('/showAllAlbums/:id', (req, res, next) => {
 router.get('/showAlbum/:id', (req,res,next) => {
   
     Artpiece.find({ collectionId : req.params.id})
-
+      .populate("collectionId")
       .then( artpiece => {
-    
-        console.log(artpiece)
-        res.render("albums/showAlbum", { artpiece })
-    
+        res.render("albums/showAlbum", { artpiece })    
       })      
       .catch(err => console.log(err))
 
@@ -90,11 +78,8 @@ axios.get(`https://www.rijksmuseum.nl/api/en/collection/${req.params.id}?key=VYU
         Collection.findOne({ "albumName" : collect})
         
         .then( collection => {
-          
-            console.log(collection._id)
-            
-
-            const image = new Artpiece({
+        
+          const image = new Artpiece({
               
               image: response.data.artObject.webImage.url,
               title: response.data.artObject.title,

@@ -53,6 +53,31 @@ router.get('/artpiece/:id', (req, res, next) => {
 
 })
 
+router.post("/delete/img/:id", (req, res) => {
+
+    Artpiece.findById({_id: req.params.id})
+
+        .then(art => {
+
+            Artpiece.findByIdAndDelete({_id: req.params.id})
+                
+                .then(data => res.redirect(`/albums/showAlbum/${art.collectionId}`))
+                .catch(err => console.log(err))
+        })
+    
+        .catch(err => console.log(err))
+
+    })
+    
+router.post("/delete/:id", (req, res) => {
+  
+    Collection.findByIdAndDelete({ _id: req.params.id})
+      .then(data => res.redirect(`/albums/showAllAlbums/${req.session.passport.user}`))
+      .catch(err => console.log(err))
+  
+  })
+
+
 
 
 module.exports = router;
