@@ -23,7 +23,8 @@ router.post("/", (req,res) => {
 
 
 router.post("/delete/:id", (req, res) => {
-  Collection.findOneAndDelete({ _id: req.params.id})
+  
+  Collection.findByIdandDelete({ _id: req.params.id})
     .then(data => {res.redirect("")})
     .catch(err => console.log(err))
 
@@ -97,6 +98,7 @@ axios.get(`https://www.rijksmuseum.nl/api/en/collection/${req.params.id}?key=VYU
               
               image: response.data.artObject.webImage.url,
               title: response.data.artObject.title,
+              apiId: response.data.artObject.objectNumber, 
               description: response.data.artObject.plaqueDescriptionEnglish,
               author: response.data.artObject.principalMakers[0].name,
               age: response.data.artObject.dating.presentingDate,
@@ -106,7 +108,14 @@ axios.get(`https://www.rijksmuseum.nl/api/en/collection/${req.params.id}?key=VYU
             })
     
               image.save()
-                .then(img => res.redirect(`/artpiece/${req.params.id}`))
+                .then(img => {
+
+                  Collection.findByIdAndUpdate(collection._id, {image: response.data.artObject.webImage.url})
+                    
+                    .then(albumUpdated => res.redirect(`/artpiece/${req.params.id}`))
+                    .catch(err => console.log(err))
+
+                })
                 .catch(err => console.log(err))
             })
         .catch(err => console.log(err))

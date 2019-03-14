@@ -2,7 +2,7 @@
   {{#each artpiece}}
     <div>
       {{#if image}}
-      <img src="{{image}}" alt="{{title}}">
+      <a href="../../../artpiece/{{apiId}}"><img src="{{image}}" alt="{{title}}"></a>
       {{else}}
       <img src="../images/popino.jpg">
       {{/if}}

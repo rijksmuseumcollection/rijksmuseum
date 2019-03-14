@@ -30,19 +30,19 @@
 
            {{#each album}}
               <article class="home-user-album">
-              <a href="artpiece/{{objectNumber}}" class="home-user-album-img">
+              <a href="albums/showAlbum/{{_id}}" class="home-user-album-img">
 
-                  {{#if webImage}}
-                    <img src="{{webImage.url}}">
+                  {{#if image}}
+                    <img src="{{image}}">
                   {{else}}
                     <img src="../images/not-found.jpg">
                   {{/if}}
                   
 
               </a>
-              <p class="home-album-author">{{albumName}}</p>
+                <a href="albums/showAlbum/{{_id}}"><p class="home-album-author">{{albumName}}</p></a>
               <p class="home-album-title">{{albumDescription}}</p>
-              <a href="" class="home-album-alias">{{ User.alias }}</a>
+              <a href="/albums/showAllAlbums/{{userId._id}}" class="home-album-alias">{{ userId.alias }}</a>
               </article>
           {{/each}}
 
@@ -50,9 +50,7 @@
               <a href="/albums/create">
                   <p>+</p>
               </a>
-                <p class="album-name">CREATE NEW ALBUM</p>
-          {{!-- <p class="album-description"></p> --}}
-          
+                <p class="album-name">CREATE NEW ALBUM</p>          
 
           </article>
 
@@ -64,7 +62,6 @@
     <p>Don't have an account yet?</p>
     
     <a href="/auth/signup" class="signup-button">SIGN UP</a>
-    {{!-- <button class="signup-button"></button> --}}
 
     <article class="social">
 

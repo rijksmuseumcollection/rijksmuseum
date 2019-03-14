@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const artPieceSchema = new Schema({
     image: String,
     title: String,
+    apiId: String,
     description: String,
     author: String,
     age: String,

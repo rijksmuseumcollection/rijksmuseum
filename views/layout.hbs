@@ -23,7 +23,7 @@
         {{#if isUserLoggedIn  }}
         
           <li><a href="/auth/logout">LOGOUT</a></li>
-          <li><a href="#">MY ALBUMS</a></li>
+          <li><a href="/albums/showAllAlbums/{{currentUserInfo._id}}">MY ALBUMS</a></li>
        {{else}}
           <li><a href="/auth/signup">SIGNUP</a></li>
           <li><a href="/auth/login">LOGIN</a></li>
