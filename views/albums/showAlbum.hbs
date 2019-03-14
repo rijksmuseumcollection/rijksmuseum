@@ -1,16 +1,23 @@
+<section class="album-view-container">
+
 {{#if artpiece}}
   {{#each artpiece}}
-    <div>
+    <article class="album-single-box">
       {{#if image}}
-      <img src="{{image}}" alt="{{title}}">
+      <img src="{{image}}" class="album-single-img">
       {{else}}
-      <img src="../images/popino.jpg">
+      <img src="../images/popino.jpg" class="not-found">
       {{/if}}
-      <p>{{title}}</p>
-      <p>{{author}}</p>
-    </div>
+      <p class="album-single-title">{{title}}</p>
+      <p class="album-single-author">{{author}}</p>
+
+      <form method="POST" action="/delete/{{_id}}">
+            <button type="submit" class="single-delete-button">DELETE</button>
+          </form>
+    </article>
   {{/each}}
 {{else}}
   <p>There's no art in this collection :(</p>
 {{/if}}
 
+</section>

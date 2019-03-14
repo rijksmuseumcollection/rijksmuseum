@@ -7,12 +7,14 @@
           <img src="/images/popino.jpg">
           </a>
 
-          <form method="POST" action="/delete/{{_id}}">
-            <button type="submit">Delete Album</button>
-          </form>
+          
     
           <p class="album-name">{{albumName}}</p>
           <p class="album-description">{{albumDescription}}</p>
+
+          <form method="POST" action="/delete/{{_id}}">
+            <button type="submit" class="delete-button">DELETE</button>
+          </form>
         </article>
         
 
@@ -21,8 +23,8 @@
           <a href="/albums/create">
               <p>+</p>
           </a>
-            <p class="album-name">CREATE</p>
-          <p class="album-description">Test</p>
+            <p class="album-name">Create New Album</p>
+          <p class="album-description"></p>
           
 
         </article>
