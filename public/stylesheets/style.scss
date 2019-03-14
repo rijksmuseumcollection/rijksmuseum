@@ -266,6 +266,7 @@
     .album-single-box {
         width: 30%;
         margin-bottom: 50px;
+        margin-right: 30px;
     }
     
     .album-single-img {
@@ -295,6 +296,16 @@
     .no-art {
         font-size: 32px;
         margin-top: 10%;
+    }
+    
+    .go-back {
+        position: fixed;
+        z-index: 99;
+        bottom: 50px;
+        right: 50px;
+        text-decoration: none;
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
     }
     
     //---------------------------------ART PIECE DETAILS VIEW------------------------------------//
@@ -466,7 +477,7 @@
         }
         &.placeholder {
             a {
-                height: 17rem;
+                height: 16.5rem;
                 text-decoration: none;
                 display: flex;
                 align-items: center;
