@@ -1,0 +1,16 @@
+{{#if artpiece}}
+  {{#each artpiece}}
+    <div>
+      {{#if image}}
+      <img src="{{image}}" alt="{{title}}">
+      {{else}}
+      <img src="../images/popino.jpg">
+      {{/if}}
+      <p>{{title}}</p>
+      <p>{{author}}</p>
+    </div>
+  {{/each}}
+{{else}}
+  <p>There's no art in this collection :(</p>
+{{/if}}
+

@@ -24,7 +24,7 @@ router.post("/", (req,res) => {
 
 router.post("/delete/:id", (req, res) => {
   Collection.findOneAndDelete({ _id: req.params.id})
-    .then(data => {res.redirect("/")})
+    .then(data => {res.redirect("")})
     .catch(err => console.log(err))
 
 })
@@ -65,10 +65,13 @@ router.get('/showAllAlbums/:id', (req, res, next) => {
 
 router.get('/showAlbum/:id', (req,res,next) => {
   
-  Artpiece.find({"collectionId": req.params.id}) 
-      .then(artpiece => {
+    Artpiece.find({ collectionId : req.params.id})
+
+      .then( artpiece => {
+    
         console.log(artpiece)
-        res.render("albums/showAlbum", {artpiece})
+        res.render("albums/showAlbum", { artpiece })
+    
       })      
       .catch(err => console.log(err))
 
@@ -83,11 +86,13 @@ axios.get(`https://www.rijksmuseum.nl/api/en/collection/${req.params.id}?key=VYU
       
     .then(response => {
         
-        Collection.find({ "albumName" : collect})
+        Collection.findOne({ "albumName" : collect})
         
         .then( collection => {
-            console.log(collection)
-            console.log("Hola " + collection._id)
+          
+            console.log(collection._id)
+            
+
             const image = new Artpiece({
               
               image: response.data.artObject.webImage.url,
@@ -96,12 +101,12 @@ axios.get(`https://www.rijksmuseum.nl/api/en/collection/${req.params.id}?key=VYU
               author: response.data.artObject.principalMakers[0].name,
               age: response.data.artObject.dating.presentingDate,
               technique: response.data.artObject.physicalMedium,
-              collectionId: mongoose.Types.ObjectId(collection._id)
+              collectionId: collection._id
               
             })
     
               image.save()
-                .then(img => console.log(img))
+                .then(img => res.redirect(`/artpiece/${req.params.id}`))
                 .catch(err => console.log(err))
             })
         .catch(err => console.log(err))

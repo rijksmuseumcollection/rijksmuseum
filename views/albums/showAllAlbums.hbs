@@ -9,6 +9,9 @@
       <p class="album-name">{{albumName}}</p>
       <p class="album-description">{{albumDescription}}</p>
 
+      <form method="POST" action="/delete/{{_id}}">
+        <button type="submit">Delete Album</button>
+      </form>
     </article>
 
 {{/each}}
