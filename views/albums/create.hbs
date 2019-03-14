@@ -1,14 +1,17 @@
-<h1>Create a New Album</h1>
+<section class="create-box">
+    <h1 class="create-h1">Create a New Album</h1>
 
-<form method="POST" action="/albums/create">
+    <form method="POST" action="/albums/create">
 
-  <label for="albumName"> Name:</label>
-  <input type="text" placeholder="Album Name" name="albumName">
-  <label for="tags">Tags:</label>
-  <input type="text" placeholder="Insert tags" name="tags">
-  <label for="description">Description:</label>
-  <input type="text" placeholder="Album's description" name="description">
+      <label for="albumName" class="label-name"> Name:</label>
+      <input type="text" placeholder="Album Name" name="albumName" class="create-name-box">
+      <label for="tags">Tags:</label>
+      <input type="text" placeholder="Insert tags" name="tags" class="create-tags-box">
+      <label for="description">Description:</label>
+      <input type="text" placeholder="Album's description" name="description" class="create-description-box">
 
-  <button type="submit">Create new album</button>
+      <button type="submit" class="create-button">CREATE</button>
 
-</form>
+    </form>
+
+</section>

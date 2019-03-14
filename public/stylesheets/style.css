@@ -80,6 +80,7 @@ h1 {
   padding-bottom: 2px;
   border-bottom: 1px solid black;
   margin: 0 auto;
+  margin-bottom: 30px;
   width: fit-content; }
 
 .home-album-author {
@@ -144,7 +145,13 @@ nav img {
   margin-right: 30px; }
 
 .nav-list a:hover {
-  color: orange; }
+  color: #E3DDCA; }
+
+.hello {
+  margin-right: 30px; }
+
+span {
+  font-weight: 700; }
 
 .search-button {
   padding: 7px 15px;
@@ -184,6 +191,9 @@ nav img {
   font-weight: 900;
   font-family: 'Amiri', serif; }
 
+.not-found {
+  max-width: 560px; }
+
 .artpiece-container {
   display: flex;
   height: 100vh; }
@@ -210,7 +220,8 @@ nav img {
   font-size: 32px;
   font-family: 'Amiri', serif;
   display: block;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 10px; }
 
 .autor {
   font-size: 20px; }
@@ -229,20 +240,115 @@ nav img {
   border: 1px solid black;
   padding: 5px; }
 
+.addtoalbum-form {
+  margin-top: 40px;
+  margin-left: 40px; }
+
+.addtoalbum-button {
+  padding: 10px 10px;
+  background-color: #E3DDCA;
+  color: black;
+  border: 1px solid black;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif; }
+
+.addtoalbum-label {
+  margin-top: 50px;
+  display: block; }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background-color: #E3DDCA;
+  background-image: none;
+  font-family: 'Lato', sans-serif; }
+
+.add-collect {
+  display: flex; }
+
+.addtoalbum-select {
+  position: relative;
+  display: block;
+  width: 13rem;
+  height: 2.5em;
+  line-height: 3;
+  background-color: #E3DDCA;
+  overflow: hidden;
+  border: 1px solid black;
+  margin-right: 2rem; }
+
+select {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 .5em;
+  color: #000;
+  cursor: pointer;
+  font-size: 15px; }
+
+select::-ms-expand {
+  display: none; }
+
+/* Arrow */
+.addtoalbum-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  pointer-events: none;
+  height: 1rem;
+  width: 1rems; }
+
+/* Transition */
+select:hover::after {
+  color: #f39c12; }
+
+select::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease; }
+
 .album-container {
   display: flex;
   justify-content: space-around;
-  width: 100%;
-  margin-top: 100px; }
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: 100px auto; }
 
 .single-album {
   width: 30%;
-  margin-right: 10px; }
+  margin-right: 10px;
+  margin-bottom: 40px; }
+  .single-album a {
+    display: block;
+    width: 100%;
+    height: 15rem;
+    overflow: hidden; }
+    .single-album a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+  .single-album.placeholder a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px dashed black; }
+    .single-album.placeholder a p {
+      font-family: 'Lato', sans-serif;
+      font-size: 200px;
+      font-weight: 100; }
 
-.cuadro {
+.single-album-portada {
   height: 250px;
   background-color: white;
-  border: 1px solid black;
   margin-bottom: 15px; }
 
 .album-name {
@@ -311,5 +417,41 @@ nav img {
 
 .account-message a:hover {
   color: orange; }
+
+.create-box {
+  max-width: 500px;
+  margin: 0 auto; }
+
+.create-h1 {
+  font-family: 'Amiri', serif;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center; }
+
+.label-name {
+  margin-bottom: 10px; }
+
+.create-name-box,
+.create-tags-box,
+.create-description-box {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  width: 100%; }
+
+.create-button {
+  padding: 15px 30px;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+  display: block;
+  margin: 50px auto;
+  font-family: 'Lato', sans-serif;
+  text-decoration: none; }
+
+.create-button:hover {
+  background-color: black;
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */

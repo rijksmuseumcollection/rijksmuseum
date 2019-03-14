@@ -1,21 +1,27 @@
 <section class="album-container">
-{{#each album}}
-  
-    <article class="single-album">
-      <a href="../../../albums/showAlbum/{{_id}}">
-      <div class="cuadro"></div>
-      </a>
 
-      <p class="album-name">{{albumName}}</p>
-      <p class="album-description">{{albumDescription}}</p>
+    {{#each album}}
+      
+        <article class="single-album">
+          <a href="../../../albums/showAlbum/{{_id}}" class="single-album-portada">
+          <img src="/images/popino.jpg">
+          </a>
 
-    </article>
+          <p class="album-name">{{albumName}}</p>
+          <p class="album-description">{{albumDescription}}</p>
+        </article>
+        
 
-{{/each}}
+    {{/each}}
+        <article class="single-album placeholder">
+          <a href="/albums/create">
+              <p>+</p>
+          </a>
+            <p class="album-name">CREATE</p>
+          <p class="album-description">Test</p>
+          
 
-<a href="/albums/create">
-  <div class="cuadro" style="width:350px">
-    <p style="font-size:40px">+</p>
-  </div>
-</a>
-</section>
+        </article>
+
+      
+    </section>
