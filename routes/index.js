@@ -17,13 +17,17 @@ function shuffle(a) {
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-    const values = ['van gogh', 'Sandra van den Bos', 'goya', 'steen', 'Jean Baptiste', 'Jan van', 'rubens'];
+    const values = ['van gog', 'steen', 'Jean Baptiste', 'rubens',
+        'Hendrick Avercamp', 'Karel Appel', 'Pieter Aersen', 'Gerrit Adriaensz Berckheyde',
+        'Jan Davidsz de Heem', 'Frans Hals'
+    ];
 
     const toSend = values[Math.floor(Math.random() * values.length)]
 
-    axios.get(`https://www.rijksmuseum.nl/api/en/collection?key=VYUGobm8&format=json&q=${toSend}&ps=6&p=3`)
+    axios.get(`https://www.rijksmuseum.nl/api/en/collection?key=VYUGobm8&format=json&q=${toSend}&ps=6`)
         .then(response => {
             Collection.find()
+                .populate("User")
                 .then(album => {
                     console.log(album)
                         // console.log(response.data.artObjects)
@@ -69,13 +73,13 @@ router.get('/', (req, res, next) => {
 router.get('/artpiece/:id', (req, res, next) => {
     axios.get(`https://www.rijksmuseum.nl/api/en/collection/${req.params.id}?key=VYUGobm8&format=json`)
         .then(response => {
-            
-            Collection.find({userId: req.session.passport.user})
+
+            Collection.find({ userId: req.session.passport.user })
                 .then(collection => {
                     res.render('artpiece', { 'data': response.data.artObject, collection })
                 })
                 .catch(err => console.log(err))
-        
+
         })
         .catch(err => console.log(err))
 

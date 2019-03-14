@@ -3,9 +3,10 @@
       <article class="search-single-box">
 
         {{#if webImage}}
+        
           <img src="{{webImage.url}}" class="search-single-img">
         {{else}}
-          <img src="../images/not-found.jpg">
+          <img src="../images/not-found.jpg" class="not-found">
         {{/if}}
 
         <p class="search-title">{{title}}</p>

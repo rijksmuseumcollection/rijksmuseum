@@ -71,9 +71,22 @@ app.use(session({
     saveUninitialized: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
+
+
 app.use(flash());
 require('./passport')(app);
 
+app.use((req, res, next) => {
+    //console.log(req.user)
+    if (req.user) {
+        res.locals.currentUserInfo = req.user;
+        res.locals.isUserLoggedIn = true;
+    } else {
+        res.locals.isUserLoggedIn = false;
+    }
+
+    next();
+});
 
 const index = require('./routes/index')
 app.use('/', index);

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
-<link href="https://fonts.googleapis.com/css?family=Amiri|Lato:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Amiri|Lato:100,300,700" rel="stylesheet">
 </head>
 <body>
 
@@ -16,9 +16,20 @@
 
     
       <ul class="nav-list">
+        {{#if isUserLoggedIn  }}
+          <p class="hello"> Hello, <span>{{ currentUserInfo.alias }}</span>!</p>
+        {{/if}}
+
+        {{#if isUserLoggedIn  }}
+        
+          <li><a href="/auth/logout">LOGOUT</a></li>
+          <li><a href="#">MY ALBUMS</a></li>
+       {{else}}
           <li><a href="/auth/signup">SIGNUP</a></li>
           <li><a href="/auth/login">LOGIN</a></li>
-          <li><a href="/auth/logout">LOGOUT</a></li>
+        
+        {{/if}}
+
           <li><form method="POST" action="/search">
               <label for="search"><input type="text" name="search" placeholder="Search" class="search-box" autocomplete="off"></label>
               <button type="submit" class="search-button">GO</button>
@@ -31,6 +42,7 @@
 
 
   <main>
+    
    {{{body}}}
 
   </main>

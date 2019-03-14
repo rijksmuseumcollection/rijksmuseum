@@ -1,387 +1,560 @@
-* {
-    margin: 0;
-}
-
-body {
-    font-family: 'Lato', sans-serif;
-    top: 30px;
-}
-
-a {
-    color: #000;
-}
-
-img {
-    max-width: 700px;
-}
-
-main {
-    padding-top: 3.8em;
-}
-
-input:focus {
-    outline: 0 none;
-}
-
-h1 {
-    font-family: 'Amiri', serif;
-    font-size: 30px;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-//---------------------------------HOME------------------------------------//
-//---------------------------------SECTION 1
-.home-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around // align-items: flex-end;
-}
-
-.home-artpiece,
-.home-user-album {
-    width: 30%;
-}
-
-.home-artpiece {
-    margin-bottom: 30px;
-}
-
-.home-artpiece img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.home-artpiece-title {
-    text-align: center;
-    margin-top: -14px;
-}
-
-//---------------------------------SECTION 2
-.header2 {
-    margin-top: 30px;
-    padding-top: 40px;
-}
-
-.background {
-    //padding: 0 200px;
-    width: 100%;
-    background-color: #E3DDCA;
-}
-
-.home-album-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding-bottom: 50px;
-}
-
-.home-album-container a {
-    font-size: 20px;
-    font-weight: 900;
-}
-
-.home-user-album-img img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.home-album-alias {
-    text-decoration: none;
-    font-weight: 500;
-    display: block;
-    text-align: center;
-    padding-bottom: 2px;
-    border-bottom: 1px solid black;
-    margin: 0 auto;
-    width: fit-content;
-}
-
-.home-album-author {
-    display: block;
-    text-align: center;
-    font-size: 32px;
-    font-family: 'Amiri', serif;
-}
-
-.home-album-title {
-    display: block;
-    text-align: center;
-    margin-top: -14px;
-    margin-bottom: 10px;
-}
-
-//---------------------------------SECTION 3
-.home-form-container {
-    height: 600px;
-    text-align: center;
-    padding-top: 50px;
-    font-size: 32px;
-}
-
-.share {
-    font-size: 20px;
-}
-
-.icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social img {
-    display: flex;
-    height: 2rem;
-    margin: .5rem;
-    margin-top: 2rem;
-}
-
-//---------------------------------NAV------------------------------------//
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0px;
-    margin-left: 0px;
-    padding: 15px;
-    width: 100vw;
-    position: fixed;
-    // border: 1px solid black;
-    box-shadow: 0 0 5px 0 rgba(51, 51, 51, 0.4);
-    background-color: white;
-    box-sizing: border-box;
-}
-
-nav img {
-    max-width: 170px;
-    margin-left: 30px;
-}
-
-.nav-list {
-    display: flex;
-    margin-right: 30px;
-}
-
-.nav-list li {
-    list-style-type: none;
-}
-
-.nav-list a {
-    text-decoration: none;
-    color: black;
-    margin-right: 30px;
-}
-
-.nav-list a:hover {
-    color: orange;
-}
-
-.search-button {
-    padding: 7px 15px;
-    border: 1px solid black;
-    background-color: white;
-    color: black;
-    font-size: 10px;
-}
-
-.search-box {
-    border: none;
-    border-bottom: 1px solid black;
-    margin-right: 5px;
-    padding: 5px;
-}
-
-//---------------------------------SEARCH------------------------------------//
-.search-container {
-    max-width: 1400px;
-    margin: 40px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around
-}
-
-.search-single-box {
-    width: 40%;
-    margin-bottom: 40px;
-}
-
-.search-single-img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.search-title {
-    margin-bottom: 5px;
-}
-
-.search-author {
-    font-size: 20px;
-    font-weight: 900;
-    font-family: 'Amiri', serif;
-}
-
-//---------------------------------ART PIECE DETAILS VIEW------------------------------------//
-.artpiece-container {
-    display: flex;
-    height: 100vh;
-    .artpiece-img {
-        width: 70vw;
-        img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-        }
+    * {
+        margin: 0;
     }
-    .artpiece-info {
-        width: 30vw;
-        overflow-y: scroll;
+    
+    body {
+        font-family: 'Lato', sans-serif;
+        top: 30px;
+    }
+    
+    a {
+        color: #000;
+    }
+    
+    img {
+        max-width: 700px;
+    }
+    
+    main {
+        padding-top: 3.8em;
+    }
+    
+    input:focus {
+        outline: 0 none;
+    }
+    
+    h1 {
+        font-family: 'Amiri', serif;
+        font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    //---------------------------------HOME------------------------------------//
+    //---------------------------------SECTION 1
+    .home-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around // align-items: flex-end;
+    }
+    
+    .home-artpiece,
+    .home-user-album {
+        width: 30%;
+    }
+    
+    .home-artpiece {
+        margin-bottom: 30px;
+    }
+    
+    .home-artpiece img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    .home-artpiece-title {
+        text-align: center;
+        margin-top: -14px;
+    }
+    
+    //---------------------------------SECTION 2
+    .header2 {
+        margin-top: 30px;
+        padding-top: 40px;
+    }
+    
+    .background {
+        //padding: 0 200px;
+        width: 100%;
         background-color: #E3DDCA;
-        padding-right: 40px;
     }
-    .artpiece-prop {
+    
+    .home-album-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-bottom: 50px;
+    }
+    
+    .home-album-container a {
+        font-size: 20px;
+        font-weight: 900;
+    }
+    
+    .home-user-album-img img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    .home-album-alias {
+        text-decoration: none;
+        font-weight: 500;
+        display: block;
+        text-align: center;
+        padding-bottom: 2px;
+        border-bottom: 1px solid black;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        width: fit-content;
+    }
+    
+    .home-album-author {
+        display: block;
+        text-align: center;
+        font-size: 32px;
+        font-family: 'Amiri', serif;
+    }
+    
+    .home-album-title {
+        display: block;
+        text-align: center;
+        margin-top: -14px;
+        margin-bottom: 10px;
+    }
+    
+    //---------------------------------SECTION 3
+    .home-form-container {
+        height: 600px;
+        text-align: center;
+        padding-top: 50px;
+        font-size: 32px;
+    }
+    
+    .share {
+        font-size: 20px;
+    }
+    
+    .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .social img {
+        display: flex;
+        height: 2rem;
+        margin: .5rem;
+        margin-top: 2rem;
+    }
+    
+    //---------------------------------NAV------------------------------------//
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0px;
+        margin-left: 0px;
+        padding: 15px;
+        width: 100vw;
+        position: fixed;
+        // border: 1px solid black;
+        box-shadow: 0 0 5px 0 rgba(51, 51, 51, 0.4);
+        background-color: white;
+        box-sizing: border-box;
+    }
+    
+    nav img {
+        max-width: 170px;
+        margin-left: 30px;
+    }
+    
+    .nav-list {
+        display: flex;
+        margin-right: 30px;
+    }
+    
+    .nav-list li {
         list-style-type: none;
     }
-    .artpiece-title {
-        font-size: 32px;
-        text-align: left;
-        padding-left: 40px;
+    
+    .nav-list a {
+        text-decoration: none;
+        color: black;
+        margin-right: 30px;
     }
-}
-
-.home-artpiece-author {
-    font-size: 32px;
-    font-family: 'Amiri', serif;
-    display: block;
-    text-align: center;
-}
-
-.autor {
-    font-size: 20px;
-}
-
-.technique {
-    font-style: italic;
-}
-
-.description {
-    line-height: 22px;
-}
-
-.goback {
-    position: absolute;
-    right: 50px;
-    bottom: 50px;
-    text-decoration: none;
-    border: 1px solid black;
-    padding: 5px;
-}
-
-//---------------------------------ALL ALBUMS VIEW------------------------------------//
-.album-container {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 100px;
-}
-
-.single-album {
-    width: 30%;
-    margin-right: 10px;
-}
-
-.cuadro {
-    height: 250px;
-    background-color: white;
-    border: 1px solid black;
-    margin-bottom: 15px;
-}
-
-.album-name {
-    font-family: 'Amiri', serif;
-    font-size: 32px;
-    text-align: center;
-}
-
-.album-description {
-    font-size: 16px;
-    text-align: center;
-}
-
-//---------------------------------LOGIN / SIGN UP------------------------------------//
-.login-box,
-.signup-box {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.login-h1,
-.signup-h1 {
-    font-family: 'Amiri', serif;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.login-form,
-.signup-form {
-    padding: 0 40px;
-    list-style-type: none;
-}
-
-.login-form li,
-.signup-form li {
-    margin-bottom: 20px;
-}
-
-.login-email-box,
-.login-pass-box,
-.signup-alias-box,
-.signup-email-box,
-.signup-pass-box {
-    border: none;
-    border-bottom: 1px solid black;
-    width: 100%;
-}
-
-.login-button,
-.signup-button {
-    padding: 15px 30px;
-    border: 1px solid black;
-    background-color: white;
-    color: black;
-    font-size: 15px;
-    display: block;
-    margin: 50px auto;
-    font-family: 'Lato', sans-serif;
-    max-width: 100px;
-    text-decoration: none;
-}
-
-.login-button:hover,
-.signup-button:hover {
-    background-color: black;
-    color: white
-}
-
-.account-message {
-    display: block;
-    margin: 0 auto;
-}
-
-.account-message a {
-    text-decoration: none;
-}
-
-.account-message a:hover {
-    color: orange;
-}
+    
+    .nav-list a:hover {
+        color: #E3DDCA;
+    }
+    
+    .hello {
+        margin-right: 30px;
+    }
+    
+    span {
+        font-weight: 700;
+    }
+    
+    .search-button {
+        padding: 7px 15px;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        font-size: 10px;
+    }
+    
+    .search-box {
+        border: none;
+        border-bottom: 1px solid black;
+        margin-right: 5px;
+        padding: 5px;
+    }
+    
+    //---------------------------------SEARCH------------------------------------//
+    .search-container {
+        max-width: 1400px;
+        margin: 40px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around
+    }
+    
+    .search-single-box {
+        width: 40%;
+        margin-bottom: 40px;
+    }
+    
+    .search-single-img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+    
+    .search-title {
+        margin-bottom: 5px;
+    }
+    
+    .search-author {
+        font-size: 20px;
+        font-weight: 900;
+        font-family: 'Amiri', serif;
+    }
+    
+    .not-found {
+        max-width: 560px;
+    }
+    
+    //---------------------------------ART PIECE DETAILS VIEW------------------------------------//
+    .artpiece-container {
+        display: flex;
+        height: 100vh;
+        .artpiece-img {
+            width: 70vw;
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                max-width: 100%;
+            }
+        }
+        .artpiece-info {
+            width: 30vw;
+            overflow-y: scroll;
+            background-color: #E3DDCA;
+            padding-right: 40px;
+        }
+        .artpiece-prop {
+            list-style-type: none;
+        }
+        .artpiece-title {
+            font-size: 32px;
+            text-align: left;
+            padding-left: 40px;
+        }
+    }
+    
+    .home-artpiece-author {
+        font-size: 32px;
+        font-family: 'Amiri', serif;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .autor {
+        font-size: 20px;
+    }
+    
+    .technique {
+        font-style: italic;
+    }
+    
+    .description {
+        line-height: 22px;
+    }
+    
+    .goback {
+        position: absolute;
+        right: 50px;
+        bottom: 50px;
+        text-decoration: none;
+        border: 1px solid black;
+        padding: 5px;
+    }
+    
+    //-----------------------------FORM
+    .addtoalbum-form {
+        margin-top: 40px;
+        margin-left: 40px;
+    }
+    
+    .addtoalbum-button {
+        padding: 10px 10px;
+        background-color: #E3DDCA;
+        color: black;
+        border: 1px solid black;
+        font-size: 15px;
+        font-family: 'Lato', sans-serif;
+    }
+    
+    .addtoalbum-label {
+        margin-top: 50px;
+        display: block
+    }
+    
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        outline: 0;
+        box-shadow: none;
+        border: 0 !important;
+        background-color: #E3DDCA;
+        background-image: none;
+        font-family: 'Lato', sans-serif;
+    }
+    
+    .add-collect {
+        display: flex;
+    }
+    
+    .addtoalbum-select {
+        position: relative;
+        display: block;
+        width: 13rem;
+        height: 2.5em;
+        line-height: 3;
+        background-color: #E3DDCA;
+        overflow: hidden;
+        border: 1px solid black;
+        margin-right: 2rem;
+    }
+    
+    select {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0 0 0 .5em;
+        color: #000;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    
+    select::-ms-expand {
+        display: none;
+    }
+    /* Arrow */
+    
+    .addtoalbum-select::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0 1em;
+        //background: #34495e;
+        pointer-events: none;
+        height: 1rem;
+        width: 1rems;
+    }
+    /* Transition */
+    
+    select:hover::after {
+        color: #f39c12;
+    }
+    
+    select::after {
+        -webkit-transition: .25s all ease;
+        -o-transition: .25s all ease;
+        transition: .25s all ease;
+    }
+    
+    //---------------------------------ALL ALBUMS VIEW------------------------------------//
+    .album-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 1400px;
+        // margin-top: 100px;
+        margin: 100px auto;
+    }
+    
+    .single-album {
+        width: 30%;
+        margin-right: 10px;
+        margin-bottom: 40px;
+        a {
+            display: block;
+            width: 100%;
+            height: 15rem;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        &.placeholder {
+            a {
+                //background: gray;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1.5px dashed black;
+                p {
+                    font-family: 'Lato', sans-serif;
+                    font-size: 200px;
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+    
+    .single-album-portada {
+        height: 250px;
+        background-color: white;
+        margin-bottom: 15px;
+    }
+    
+    .album-name {
+        font-family: 'Amiri', serif;
+        font-size: 32px;
+        text-align: center;
+    }
+    
+    .album-description {
+        font-size: 16px;
+        text-align: center;
+    }
+    
+    //---------------------------------LOGIN / SIGN UP------------------------------------//
+    .login-box,
+    .signup-box {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .login-h1,
+    .signup-h1 {
+        font-family: 'Amiri', serif;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .login-form,
+    .signup-form {
+        padding: 0 40px;
+        list-style-type: none;
+    }
+    
+    .login-form li,
+    .signup-form li {
+        margin-bottom: 20px;
+    }
+    
+    .login-email-box,
+    .login-pass-box,
+    .signup-alias-box,
+    .signup-email-box,
+    .signup-pass-box {
+        border: none;
+        border-bottom: 1px solid black;
+        width: 100%;
+    }
+    
+    .login-button,
+    .signup-button {
+        padding: 15px 30px;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        font-size: 15px;
+        display: block;
+        margin: 50px auto;
+        font-family: 'Lato', sans-serif;
+        max-width: 100px;
+        text-decoration: none;
+    }
+    
+    .login-button:hover,
+    .signup-button:hover {
+        background-color: black;
+        color: white
+    }
+    
+    .account-message {
+        display: block;
+        margin: 0 auto;
+    }
+    
+    .account-message a {
+        text-decoration: none;
+    }
+    
+    .account-message a:hover {
+        color: orange;
+    }
+    
+    //---------------------------------CREATE------------------------------------//
+    .create-box {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .create-h1 {
+        font-family: 'Amiri', serif;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .label-name {
+        margin-bottom: 10px;
+    }
+    
+    .create-name-box,
+    .create-tags-box,
+    .create-description-box {
+        border: none;
+        border-bottom: 1px solid black;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    
+    .create-button {
+        padding: 15px 30px;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        font-size: 15px;
+        display: block;
+        margin: 50px auto;
+        font-family: 'Lato', sans-serif;
+        text-decoration: none;
+    }
+    
+    .create-button:hover {
+        background-color: black;
+        color: white
+    }

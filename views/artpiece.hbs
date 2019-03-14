@@ -14,19 +14,31 @@
           <li class="technique">{{data.physicalMedium}}</li> <br>
       </ul>
 
-      
+
+   <div class="addtoalbum-form">
+
       <form method="post" action="/albums/showAlbum/add/{{data.objectNumber}}">
-        <label for="collect">Select your collection</label>
-        <select name="collect">
-          {{#each collection}}
-          <option>{{albumName}}</option>
-          {{/each}}
-        </select>
-        <button type="submit">Add</button>
+        <label for="collect" class="addtoalbum-label">Add to your collection:</label> <br>
+        
+        <div class="add-collect">
+          <div class="addtoalbum-select">
+            <select name="collect">
+              <option>CHOOSE AN ALBUM</option>
+              {{#each collection}}
+              
+              <option>{{albumName}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <button type="submit" class="addtoalbum-button">ADD</button>
+
+        </div>
+
       </form>
-      
+
+    </div>
       
       <a href="/" class="goback">BACK</a>
-    </article>
+    </article>  
 
 </section>

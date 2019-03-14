@@ -24,7 +24,7 @@
 
 
 <section class="background">
-  <h1 class="header2">SOME OF OUR MEMBER'S PERSONALIZED ALBUMS</h1> 
+  <h1 class="header2">CHECK SOME OF OUR MEMBER'S PERSONALIZED ALBUMS</h1> 
     <article class="home-album-container">
       
 
@@ -42,9 +42,19 @@
               </a>
               <p class="home-album-author">{{albumName}}</p>
               <p class="home-album-title">{{albumDescription}}</p>
-              <a href="#" class="home-album-alias">cris</a>
+              <a href="" class="home-album-alias">{{ User.alias }}</a>
               </article>
           {{/each}}
+
+           <article class="single-album placeholder">
+              <a href="/albums/create">
+                  <p>+</p>
+              </a>
+                <p class="album-name">CREATE NEW ALBUM</p>
+          {{!-- <p class="album-description"></p> --}}
+          
+
+          </article>
 
     </article>
 </section>
@@ -53,7 +63,7 @@
 <section class="home-form-container">
     <p>Don't have an account yet?</p>
     
-    <a href="/views/auth/signup.hbs" class="signup-button">SIGN UP</a>
+    <a href="/auth/signup" class="signup-button">SIGN UP</a>
     {{!-- <button class="signup-button"></button> --}}
 
     <article class="social">
@@ -65,10 +75,6 @@
       <img src="/images/facebook.png" alt="facebook">
 </div>
     </article>
-
-         
-
   
 </section>
-
 
