@@ -58,22 +58,28 @@
     </article>
 </section>
 
+{{#if isUserLoggedIn  }}
+<section class="home-form-container" style="height: 200px">
+{{/if}}
 
-<section class="home-form-container">
-    <p>Don't have an account yet?</p>
+{{#unless isUserLoggedIn  }}
+    <p class="account-yet">Don't have an account yet?</p>
     
     <a href="/auth/signup" class="signup-button">SIGN UP</a>
+{{/unless}}
 
     <article class="social">
 
       <p class="share">Share your albums!</p>
-<div class="icons">
-      <img src="/images/social.png" alt="instagram">
-      {{!-- <img src="/images/twitter.png" alt="twitter"> --}}
-      {{!-- <img src="/images/facebook.png" alt="facebook"> --}}
-</div>
-    <p class="copyright">&copy; 2019. PepaCris. <br> <br>
+      <div class="icons">
+            <img src="/images/social.png" alt="instagram">
+            {{!-- <img src="/images/twitter.png" alt="twitter"> --}}
+            {{!-- <img src="/images/facebook.png" alt="facebook"> --}}
+      </div>
+
+    <p class="copyright" style="margin-bottom: 30px">&copy; 2019. PepaCris. <br> <br>
       Todos los cuadros expuestos en esta web se pueden hacer por programación.</p>
+
     </article>
   
 </section>
