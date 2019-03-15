@@ -13,7 +13,6 @@ const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
 
-
 mongoose
     .connect(process.env.MONGOURL, { useNewUrlParser: true })
     .then(x => {
@@ -85,8 +84,16 @@ app.use((req, res, next) => {
         res.locals.isUserLoggedIn = false;
     }
 
-    next();
-});
+    next()
+})
+
+app.use('/albums/showAllAlbums/:id', (req,res,next) => {
+    
+    if (req.user._id == req.params.id) res.locals.currentUserAuthor = true
+    else res.locals.currentUserAuthor = false
+    
+    next()
+})
 
 const index = require('./routes/index')
 app.use('/', index);
