@@ -62,16 +62,20 @@ router.get('/showAlbum/:id', (req,res,next) => {
 
         let currentAlbumAuthor
         
-        if (req.user._id.toString() == artpiece[0].collectionId.userId.toString()) {
+        if(req.user){
+          if (req.user._id.toString() == artpiece[0].collectionId.userId.toString()) {
           
           currentAlbumAuthor = true
         
           res.render("albums/showAlbum", {artpiece, currentAlbumAuthor})
-        }
-        else {
+          }
+          else {
           currentAlbumAuthor = false
           res.render("albums/showAlbum", {artpiece, currentAlbumAuthor })    
         
+          }
+        } else {
+          res.render("albums/showAlbum", {artpiece})
         }
       })      
       .catch(err => console.log(err))

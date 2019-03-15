@@ -89,9 +89,11 @@ app.use((req, res, next) => {
 
 app.use('/albums/showAllAlbums/:id', (req,res,next) => {
     
+    if(req.user) {
     if (req.user._id == req.params.id) res.locals.currentUserAuthor = true
     else res.locals.currentUserAuthor = false
-    
+    }
+
     next()
 })
 
