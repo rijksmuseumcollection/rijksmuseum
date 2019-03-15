@@ -3,9 +3,7 @@ const router  = express.Router()
 const axios   = require('axios')
 
 const Collection = require('../models/Collection')
-const User = require('../models/User')
 const Artpiece = require('../models/Artpiece')
-const mongoose = require("mongoose")
 
 
 function ensureAuthenticated(req, res, next) {
@@ -45,6 +43,7 @@ router.post('/create', ensureAuthenticated, (req,res,next) => {
 })
 
 router.get('/showAllAlbums/:id', (req, res, next) => {
+
   Collection.find({ "userId": req.params.id } )
 
   .then(album => {
@@ -60,7 +59,20 @@ router.get('/showAlbum/:id', (req,res,next) => {
     Artpiece.find({ collectionId : req.params.id})
       .populate("collectionId")
       .then( artpiece => {
-        res.render("albums/showAlbum", { artpiece })    
+
+        let currentAlbumAuthor
+        
+        if (req.user._id.toString() == artpiece[0].collectionId.userId.toString()) {
+          
+          currentAlbumAuthor = true
+        
+          res.render("albums/showAlbum", {artpiece, currentAlbumAuthor})
+        }
+        else {
+          currentAlbumAuthor = false
+          res.render("albums/showAlbum", {artpiece, currentAlbumAuthor })    
+        
+        }
       })      
       .catch(err => console.log(err))
 

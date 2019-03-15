@@ -15,11 +15,16 @@
           <p class="album-description">{{albumDescription}}</p>
 
           {{#if ../isUserLoggedIn}}
+          {{#if ../currentUserAuthor}}
+        
           <form method="POST" action="/delete/{{_id}}">
             <button type="submit" class="delete-button">DELETE</button>
           </form>
           {{/if}}
+          {{/if}}
         </article>
+
+          <script>console.log(currentUserAuthor)</script>
         
 
     {{/each}}
